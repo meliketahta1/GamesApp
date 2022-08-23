@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment2">
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.melike.mobile_summer_intern.presentation.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment2_to_gamesListFragment2"
+            app:destination="@id/gamesListFragment2"
+            app:popUpTo="@id/splashFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamesListFragment2"
+        android:name="com.melike.mobile_summer_intern.presentation.feed.GamesListFragment"
+        android:label="fragment_games_list"
+        tools:layout="@layout/fragment_games_list" >
+        <action
+            android:id="@+id/action_gamesListFragment_to_gameDetailFragment"
+            app:destination="@id/gameDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetailFragment"
+        android:name="com.melike.mobile_summer_intern.presentation.detail.GameDetailFragment"
+        android:label="fragment_game_detail"
+        tools:layout="@layout/fragment_game_detail" >
+        <argument
+            android:name="gameId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

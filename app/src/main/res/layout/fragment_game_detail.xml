@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="@dimen/dimen10dp"
+    tools:context=".presentation.detail.GameDetailFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/black">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="0.33"
+                android:paddingTop="@dimen/dimen20dp"
+                android:src="@drawable/ic_baseline_arrow_back" />
+
+            <TextView
+                android:id="@+id/tvGameDetail"
+                style="@style/ToolBarTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen10dp"
+                android:layout_weight="0.33"
+                android:backgroundTint="@color/black"
+                android:text="@string/game_detail" />
+
+            <ImageView
+                android:id="@+id/ivWishList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/dimen10dp"
+                android:layout_weight="0.33"
+                android:paddingTop="@dimen/dimen20dp"
+                android:src="@drawable/ic_not_added_wishlist" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pbGameDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            android:indeterminate="true" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGameDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/pbGameDetail">
+
+            <ImageView
+                android:id="@+id/ivGamePoster"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen230dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_oval"
+                android:clipToOutline="true"
+                android:scaleType="center"
+                android:src="@drawable/bg_trendgames"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvGameName"
+                style="@style/GameNameTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen20dp"
+                android:layout_marginBottom="@dimen/dimen10dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@id/tvMetacritic"
+                app:layout_constraintEnd_toStartOf="@id/tvMetacritic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvMetacritic" />
+
+            <TextView
+                android:id="@+id/tvMetacritic"
+                style="@style/MetacriticTextStyle"
+                android:layout_width="@dimen/dimen30dp"
+                android:layout_height="@dimen/dimen20dp"
+                android:layout_marginTop="@dimen/dimen10dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@id/tvDescriptionTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvGameName"
+                app:layout_constraintTop_toBottomOf="@id/ivGamePoster"
+                tools:text="20" />
+
+            <TextView
+                android:id="@+id/tvDescriptionTitle"
+                style="@style/SubtitleTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen20dp"
+                android:text="@string/description"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/tvInformationTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMetacritic" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/DescriptionTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/tvInformationTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle" />
+
+            <TextView
+                android:id="@+id/tvInformationTitle"
+                style="@style/SubtitleTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen20dp"
+                android:text="@string/information"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGameInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_oval_body"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInformationTitle"
+                tools:listitem="@layout/game_detail_information_item" />
+
+            <TextView
+                android:id="@+id/tvGoReddit"
+                style="@style/LinkTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen10dp"
+                android:background="@drawable/bg_oval"
+                android:text="@string/visit_reddit"
+                app:drawableRightCompat="@drawable/ic_baseline_arrow_forward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvGameInfo" />
+
+            <TextView
+                android:id="@+id/tvGoWebsite"
+                style="@style/LinkTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen10dp"
+                android:background="@drawable/bg_oval"
+                android:text="@string/visit_website"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGoReddit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.core.widget.NestedScrollView>

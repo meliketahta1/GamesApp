@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    tools:context=".presentation.feed.GamesListFragment">
+
+    <include
+        android:id="@+id/tbSearchBar"
+        layout="@layout/custom_search_tool_bar" />
+
+    <TextView
+        android:id="@+id/tvNoGame"
+        style="@style/ToolBarTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_game_has_been_found"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tbSearchBar" />
+
+    <ProgressBar
+        android:id="@+id/pbGameList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tbSearchBar" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGamesList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dimen5dp"
+        android:layout_marginEnd="@dimen/dimen5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbSearchBar"
+        tools:listitem="@layout/game_list_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

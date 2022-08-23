@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bokora_grey">
+
+    <TextView
+        android:id="@+id/tvAppName"
+        style="@style/ToolBarTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/games"
+        app:layout_constraintBottom_toTopOf="@id/svSearchGame"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svSearchGame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen10dp"
+        android:background="@drawable/bg_oval"
+        android:backgroundTint="@color/soft_gray"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toBottomOf="@id/tvAppName"
+        app:queryHint="@string/search" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
